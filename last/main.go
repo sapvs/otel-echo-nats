@@ -14,7 +14,7 @@ import (
 )
 
 func main() {
-	cancelTrace, _ := otl.Init("final")
+	cancelTrace, _ := otl.Init(common.FINAL_ROUTE)
 	defer cancelTrace(context.Background(), 20*time.Second)
 
 	router := echo.New()

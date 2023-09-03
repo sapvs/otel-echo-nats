@@ -17,14 +17,15 @@ import (
 var nc *nats.Conn
 
 func init() {
-	nc, _ = nats.Connect(common.NATS_URL)
+	_nc, err := nats.Connect(common.NATS_URL)
+	if err != nil {
+		log.Fatalf("Nats not connected %v", err)
+	}
+	nc = _nc
 }
 
 func PublishSomeEvent(ctx context.Context) error {
-	ctx, span := otel.GetTracerProvider().
-		Tracer(common.SERVICE_NAME).
-		Start(ctx, "nats_publish", trace.WithSpanKind(trace.SpanKindProducer))
-
+	ctx, span := otel.GetTracerProvider().Tracer(common.SERVICE_NAME).Start(ctx, "nats_publish", trace.WithSpanKind(trace.SpanKindProducer))
 	defer span.End()
 
 	msg := nats.NewMsg(common.NATS_SUBJECT)

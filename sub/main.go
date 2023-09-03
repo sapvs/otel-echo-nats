@@ -73,5 +73,5 @@ func callHttpFinal(ctx context.Context) {
 }
 
 var client = http.Client{
-	Timeout: 200 * time.Millisecond,
+	Timeout: 500 * time.Millisecond,
 }
