@@ -26,10 +26,14 @@ func main() {
 	if er != nil {
 		log.Fatal(er)
 	}
-	defer sub.Unsubscribe()
+	defer func() {
+		if err := sub.Unsubscribe(); err != nil {
+			log.Printf("could not unsubscribe due to %s", err.Error())
+		}
+	}()
 
 	for {
-		if msg, err := sub.NextMsg(10 * time.Second); err != nil {
+		if msg, err := sub.NextMsg(100 * time.Second); err != nil {
 			log.Fatal(err)
 		} else {
 			log.Printf("Message received %v :  %s", msg.Header, msg.Data)

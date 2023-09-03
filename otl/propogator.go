@@ -35,8 +35,8 @@ func newJaegerProvider(id string) (*tracesdk.TracerProvider, error) {
 	// Create the Jaeger exporter
 	exporter, err := jaeger.New(
 		jaeger.WithAgentEndpoint(
-			jaeger.WithAgentHost("localhost"),
-			jaeger.WithAgentPort("6831"),
+			jaeger.WithAgentHost(common.JAEGER_HOST),
+			jaeger.WithAgentPort(common.JAEGER_PORT),
 		),
 	)
 	if err != nil {
@@ -44,9 +44,7 @@ func newJaegerProvider(id string) (*tracesdk.TracerProvider, error) {
 	}
 
 	return tracesdk.NewTracerProvider(
-		// Always be sure to batch in production.
 		tracesdk.WithBatcher(exporter),
-		// Record information about this application in a Resource.
 		tracesdk.WithResource(resource.NewWithAttributes(
 			semconv.SchemaURL,
 			semconv.ServiceNameKey.String(common.SERVICE_NAME),

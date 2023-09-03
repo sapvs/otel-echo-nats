@@ -1,6 +1,16 @@
-run jaeger
+# OPenteemetry tracing across http and nats communication
 
+## RUN 
+### Start solution
 ```bash
-docker run -it --name jaeger --rm  -e COLLECTOR_ZIPKIN_HTTP_PORT=9411   -p 5775:5775/udp   -p 6831:6831/udp   -p 6832:6832/udp   -p 5778:5778   -p 16686:16686   -p 14268:14268   -p 9411:9411   jaegertracing/all-in-one
-
+docker compose up 
 ```
+
+### Jaeger
+available at http://localhost:16686
+
+### Perform some calls
+```bash
+curl -X GET localhost:8080/hello
+```
+
