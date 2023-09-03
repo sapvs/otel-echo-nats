@@ -14,3 +14,9 @@ available at http://localhost:16686
 curl -X GET localhost:8080/hello
 ```
 
+## Flows
+### Normal Flow
+![Normal Flow](./diags/serviceFlow.jpg)
+
+## Otel Flow 
+![Otel Flow](./diags/otelFlow.jpg)

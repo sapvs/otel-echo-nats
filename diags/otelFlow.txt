@@ -1,0 +1,23 @@
+participant CLIENT 
+participant HELLO 
+participant NATS 
+participant JAEGER
+
+CLIENT -> HELLO: HTTP GET /hello
+SUB -> NATS: Subscribe TEST
+HELLO -> NATS: PUBLISH TEST - MSG
+NATS -> SUB : Deliver TEST - MSG
+SUB -> JAEGER : trace date for message processing
+
+SUB -> LAST: HTTP GET /final
+note over LAST: sleep random time
+alt Request success
+LAST -> SUB : 200 OK
+LAST -> JAEGER: trace data for success
+SUB -> JAEGER : trace data for success
+else 
+SUB -> SUB : HTTP timeout
+SUB -> JAEGER: trace data with error
+end
+HELLO -> JAEGER: trace data
+HELLO -> CLIENT : 200 OK
