@@ -19,21 +19,17 @@ services:
       - 9411
   server:
     build:
-      dockerfile: server/Dockerfile
+      args:
+        - DIR=server
     ports:
       - 8080:8080
-    # depends_on:
-    #   nats:
-    #     condition: service_healthy
-    #   jaeger:
-    #     condition: service_healthy
   subscriber:
     build:
-      dockerfile: sub/Dockerfile
-    # depends_on:
-    #   nats:
-    #     condition: service_healthy
-    #   jaeger:
-    #     condition: service_healthy
-    #   server:
-    #     condition: service_healthy
+      args:
+        - DIR=sub
+  last:
+    build:
+      args:
+        - DIR=last
+    ports:
+      - 8090:8080

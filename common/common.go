@@ -6,4 +6,9 @@ const (
 	NATS_SUBJECT = "otel_test"
 	JAEGER_HOST  = "jaeger"
 	JAEGER_PORT  = "6831"
+	FINAL_ROUTE  = "final"
 )
+
+type BToC struct {
+	Data string `json:"data"`
+}

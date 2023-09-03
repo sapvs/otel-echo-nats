@@ -28,9 +28,7 @@ func PublishSomeEvent(ctx context.Context) error {
 	defer span.End()
 
 	msg := nats.NewMsg(common.NATS_SUBJECT)
-	log.Printf("msg.Header before: %v\n", msg.Header)
 	otl.InjectOtelToNATSHeader(ctx, &msg.Header)
-	log.Printf("msg.Header After: %v\n", msg.Header)
 
 	span.SetAttributes(attribute.String("header", fmt.Sprintf("%v", msg.Header)))
 

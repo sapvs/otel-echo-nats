@@ -23,11 +23,9 @@ var (
 
 func InjectOtelToNATSHeader(ctx context.Context, headers *nats.Header) {
 	prop.Inject(ctx, propagation.HeaderCarrier(*headers))
-	log.Printf(" SAPAN , %v\n", headers)
 }
 
 func ExtractOTelContextFromNATSHeader(ctx context.Context, headers *nats.Header) context.Context {
-	log.Printf(" SAPAN , %v\n", headers)
 	return prop.Extract(ctx, propagation.HeaderCarrier(*headers))
 }
 
