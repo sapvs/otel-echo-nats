@@ -1,0 +1,21 @@
+participant CLIENT 
+participant HELLO 
+participant NATS 
+
+CLIENT -> HELLO: HTTP GET /hello
+SUB -> NATS: SUbscriber test subject
+HELLO -> NATS: PUBLISH TEST[MSG]
+NATS -> SUB : Deliver TEST[MSG]
+
+
+SUB -> LAST: HTTP GET /final
+note over LAST: sleep random time
+alt Request success
+LAST -> SUB : 200 OK
+else 
+SUB -> SUB : HTTP timeout
+end
+HELLO -> CLIENT : 200 OK
+
+
+
