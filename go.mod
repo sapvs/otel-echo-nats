@@ -4,7 +4,6 @@ go 1.20
 
 require (
 	github.com/labstack/echo/v4 v4.11.1
-	github.com/labstack/gommon v0.4.0
 	github.com/nats-io/nats.go v1.28.0
 	github.com/pkg/errors v0.9.1
 	go.opentelemetry.io/contrib/instrumentation/github.com/labstack/echo/otelecho v0.43.0
@@ -20,6 +19,7 @@ require (
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/klauspost/compress v1.16.7 // indirect
+	github.com/labstack/gommon v0.4.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.19 // indirect
 	github.com/nats-io/nats-server/v2 v2.9.21 // indirect
