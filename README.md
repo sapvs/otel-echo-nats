@@ -1,4 +1,4 @@
-# OPenteemetry tracing across http and nats communication
+# Open telemetry tracing across http and nats
 
 ## RUN 
 ### Start solution
