@@ -6,11 +6,11 @@ require (
 	github.com/labstack/echo/v4 v4.11.1
 	github.com/nats-io/nats.go v1.28.0
 	github.com/pkg/errors v0.9.1
-	go.opentelemetry.io/contrib/instrumentation/github.com/labstack/echo/otelecho v0.43.0
-	go.opentelemetry.io/otel v1.17.0
+	go.opentelemetry.io/contrib/instrumentation/github.com/labstack/echo/otelecho v0.44.0
+	go.opentelemetry.io/otel v1.18.0
 	go.opentelemetry.io/otel/exporters/jaeger v1.17.0
 	go.opentelemetry.io/otel/sdk v1.17.0
-	go.opentelemetry.io/otel/trace v1.17.0
+	go.opentelemetry.io/otel/trace v1.18.0
 )
 
 require (
@@ -27,7 +27,7 @@ require (
 	github.com/nats-io/nuid v1.0.1 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.2 // indirect
-	go.opentelemetry.io/otel/metric v1.17.0 // indirect
+	go.opentelemetry.io/otel/metric v1.18.0 // indirect
 	golang.org/x/crypto v0.14.0 // indirect
 	golang.org/x/net v0.17.0 // indirect
 	golang.org/x/sys v0.13.0 // indirect
