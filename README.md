@@ -1,3 +1,5 @@
+[![Go](https://github.com/sapvs/otel-echo-nats/actions/workflows/go.yml/badge.svg)](https://github.com/sapvs/otel-echo-nats/actions/workflows/go.yml)
+
 # Open telemetry tracing across http and nats
 
 ## RUN 
